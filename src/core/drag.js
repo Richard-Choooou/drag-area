@@ -1,6 +1,8 @@
 import Area from './area'
-class Core {
-    constructor(container, options) {
+import events from '../modules/events'
+
+class Drag {
+    constructor(container, options = {}) {
         if(typeof container === "string") {
             const el = document.getElementById(container)
             this.container = el ? el : document.body
@@ -14,7 +16,7 @@ class Core {
 
         }, options)
 
-        this.childArea = new Set()
+        this.childArea = new Map()
 
         this.initContainer()
         // this.initEvent()
@@ -26,13 +28,15 @@ class Core {
     }
 
     initEvent() {
-        
+        this.container.addEventListener('mousedown', function(e) {
+            e.preventDefault()
+        })
     }
 
-    addArea(AreaOptions) {
+    addArea(areaOptions) {
         let area = new Area({
             parent: this.container,
-            ...AreaOptions
+            ...areaOptions
         })
 
         area.once('close', () => {
@@ -42,9 +46,12 @@ class Core {
             }
         })
 
+        area.on('dbClick', (instance) => {
+            this.dispatchEvent('areaDbClick', instance)
+        })
+
         this.container.appendChild(area.$el)
-        this.childArea.add(area)
-        console.log(area)
+        this.childArea.set(area, area.getInfo())
         return area
     }
 
@@ -56,21 +63,20 @@ class Core {
     }
 
     removeAllArea() {
-        this.childArea.forEach(area => {
+        this.childArea.forEach((areaInfo, area) => {
             this.container.removeChild(area.$el)
         })
         this.childArea.clear()
     }
 
     getAllAreas() {
-        return [...this.childArea]
+        return [...this.childArea.keys()]
     }
 
     getAllAreasInfo() {
-        return [...this.childArea].map(value => {
-            return value.getInfo()
-        })
+        return [...this.childArea.values()]
     }
 }
 
-export default Core
+events(Drag)
+export default Drag
