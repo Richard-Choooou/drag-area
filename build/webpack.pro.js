@@ -1,7 +1,6 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const webpackBaseConfig = require('./webpack.base')
-// const miniCssExtractPlugin = require('mini-css-extract-plugin')
 const config = require('./config')
 const ENV = process.argv.NODE_ENV
 
@@ -12,7 +11,8 @@ module.exports = merge(webpackBaseConfig, {
         path: path.resolve(config.basePath, './dist'),
         publicPath: '/dist',
         libraryTarget: 'umd',
-        library: 'DragArea'
+        library: 'DragArea',
+        libraryExport: "default"
     },
 
     module: {
@@ -25,13 +25,7 @@ module.exports = merge(webpackBaseConfig, {
                 ]
             }
         ]
-    },
-
-    plugins: [
-        // new miniCssExtractPlugin({
-        //     filename: "drag.min.css"
-        // })
-    ]
+    }
 })
 
     
