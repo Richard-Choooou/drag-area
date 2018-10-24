@@ -51,7 +51,7 @@ class Drag {
         })
 
         this.container.appendChild(area.$el)
-        this.childArea.set(area, area.getInfo())
+        this.childArea.set(area, {})
         return area
     }
 
@@ -74,7 +74,7 @@ class Drag {
     }
 
     getAllAreasInfo() {
-        return [...this.childArea.values()]
+        return [...this.childArea.keys()].map(obj => obj.getInfo())
     }
 }
 

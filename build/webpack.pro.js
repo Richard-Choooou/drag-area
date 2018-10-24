@@ -8,10 +8,11 @@ const ENV = process.argv.NODE_ENV
 module.exports = merge(webpackBaseConfig, {
     mode: 'production',
     output: {
-        filename: 'drag.min.js',
+        filename: 'drag-area.min.js',
         path: path.resolve(config.basePath, './dist'),
         publicPath: '/dist',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+        library: 'DragArea'
     },
 
     module: {

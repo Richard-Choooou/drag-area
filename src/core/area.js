@@ -35,9 +35,9 @@ class Area {
         div.style.zIndex = ++zIndex
         
         if(this.DEFAULT_OPTIONS.innerText) {
-            const p = document.createElement('span')
-            p.innerText = this.DEFAULT_OPTIONS.innerText
-            div.appendChild(p)
+            const span = document.createElement('span')
+            span.innerText = this.DEFAULT_OPTIONS.innerText
+            div.appendChild(span)
         }
         if(this.DEFAULT_OPTIONS.slot) {
             const slot = document.createElement('div')
@@ -219,28 +219,15 @@ class Area {
     getInfo() {
         const fatherContainerRect = this.DEFAULT_OPTIONS.parent.getBoundingClientRect()
 
-        return new Proxy(this.DEFAULT_OPTIONS, {
-            get: (target, name) => {
-                if(target[name]) {
-                    return target[name]
-                } else {
-                    switch(name) {
-                        case 'leftProportion':
-                            return ((this.DEFAULT_OPTIONS.x + this.DEFAULT_OPTIONS.left) / fatherContainerRect.width).toFixed(2) * 100 + '%'
-                        case 'topProportion':
-                            return ((this.DEFAULT_OPTIONS.y + this.DEFAULT_OPTIONS.top) / fatherContainerRect.height).toFixed(2) * 100 + '%'
-                        case 'widthProportion':
-                            return (this.DEFAULT_OPTIONS.width / fatherContainerRect.width).toFixed(2) * 100 + '%'
-                        case 'heightProportion':
-                            return (this.DEFAULT_OPTIONS.height / fatherContainerRect.height).toFixed(2) * 100 + '%'
-                        default:
-                            return undefined
-                    }
-                }
-            },
-            set: () => {
-                return false
-            }
+        return Object.assign({}, {
+            height: this.DEFAULT_OPTIONS.height,
+            width: this.DEFAULT_OPTIONS.width,
+            top: this.DEFAULT_OPTIONS.top + this.DEFAULT_OPTIONS.y,
+            left: this.DEFAULT_OPTIONS.left + this.DEFAULT_OPTIONS.x,
+            leftProportion: ((this.DEFAULT_OPTIONS.x + this.DEFAULT_OPTIONS.left) / fatherContainerRect.width * 100).toFixed(2) + '%',
+            topProportion: ((this.DEFAULT_OPTIONS.y + this.DEFAULT_OPTIONS.top) / fatherContainerRect.height * 100).toFixed(2) + '%',
+            widthProportion: (this.DEFAULT_OPTIONS.width / fatherContainerRect.width * 100).toFixed(2) + '%',
+            heightProportion: (this.DEFAULT_OPTIONS.height / fatherContainerRect.height * 100).toFixed(2) + '%'
         })
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "drag-area",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "用于拖拽生成区域",
   "main": "index.js",
   "scripts": {

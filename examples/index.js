@@ -6,7 +6,6 @@ document.getElementById('add').addEventListener('click', function() {
     dragArea.addArea({
         width: 100,
         height: 60,
-        rotate: 0,
         x: 100,
         y: 100,
         left: 20,
@@ -27,11 +26,17 @@ getAllAreas.addEventListener('click', function() {
 getAllAreasInfo.addEventListener('click', function() {
     // console.log()
     const areas = dragArea.getAllAreasInfo()
-    console.log(areas)
-    console.log('left 百分比', areas[0].leftProportion)
-    console.log('top 百分比', areas[0].topProportion)
-    console.log('width 百分比', areas[0].widthProportion)
-    console.log('height 百分比', areas[0].heightProportion)
+    areas.forEach(value => {
+        console.log('=========================================')
+        console.log('高度', value.height + 'px')
+        console.log('宽度', value.width + 'px')
+        console.log('距离顶部', value.top + value.y + 'px')
+        console.log('距离左边', value.left + value.x + 'px')
+        console.log('left 百分比', value.leftProportion)
+        console.log('top 百分比', value.topProportion)
+        console.log('width 百分比', value.widthProportion)
+        console.log('height 百分比', value.heightProportion)
+    })
 
 })
 
