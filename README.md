@@ -113,10 +113,12 @@ dragArea.removeOneArea(area)
 
 ## removeAllArea
 > params: no params
+
 移除容器内所有可拖拽区域
 
 ## getAllAreas
 > params: no params
+
 获取当前容器内存在的所有可拖拽区域实例对象
 
 ## getAllAreasInfo
@@ -134,10 +136,12 @@ dragArea.removeOneArea(area)
 |heightProportion|区域相对于容器的高度|百分比|
 
 ## on
-> params: two params
-
+```js
+params: two params
 argument[0]: event name
 argument[1]: callback
+```
+
 监听容器的事件，目前支持的事件**areaDbClick**，当可拖拽区域被双击时会执行, 回调函数的参数为被双击的可拖拽区域实例对象
 
 示例
