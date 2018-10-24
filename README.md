@@ -99,6 +99,7 @@ import DragArea form 'drag-area'
 |参数|解释|类型|
 |---|---|---|
 |area|通过addArea函数得到的对象|Object|
+
 移除某个可拖拽区域
 
 示例：
@@ -134,6 +135,7 @@ dragArea.removeOneArea(area)
 
 ## on
 > params: two params
+
 argument[0]: event name
 argument[1]: callback
 监听容器的事件，目前支持的事件**areaDbClick**，当可拖拽区域被双击时会执行, 回调函数的参数为被双击的可拖拽区域实例对象
