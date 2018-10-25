@@ -9,7 +9,6 @@ module.exports = {
 
     resolve: {
         extensions: [".js", ".json"],
-        modules: ['node_modules'],
         alias: {
             '@': config.basePath,
             '@src': config.srcPath,
@@ -20,7 +19,14 @@ module.exports = {
     module: {
         rules: [{
             test: /\.js$/,
-            use: ['babel-loader']
+            exclude: /(node_modules|bower_components)/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: ['@babel/preset-env'],
+                    plugins: ['@babel/transform-runtime']
+                }
+            }
         }, {
             test: /\.(png|jpg|gif|svg)$/,
             use: [{
