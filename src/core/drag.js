@@ -12,15 +12,11 @@ class Drag {
             return console.error('container must be exist')
         }
 
-        new Promise((resolve, reject) => {
-            
-        })
-
         this.DEFAULT_OPTIONS = Object.assign({
 
         }, options)
 
-        this.childArea = new Map()
+        this.childArea = new Set()
 
         this.initContainer()
         // this.initEvent()
@@ -55,7 +51,7 @@ class Drag {
         })
 
         this.container.appendChild(area.$el)
-        this.childArea.set(area, {})
+        this.childArea.add(area)
         return area
     }
 
@@ -74,7 +70,7 @@ class Drag {
     }
 
     getAllAreas() {
-        return [...this.childArea.keys()]
+        return [...this.childArea]
     }
 
     getAllAreasInfo() {
