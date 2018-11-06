@@ -12,10 +12,6 @@ class Drag {
             return console.error('container must be exist')
         }
 
-        new Promise((resolve, reject) => {
-            
-        })
-
         this.DEFAULT_OPTIONS = Object.assign({
 
         }, options)
