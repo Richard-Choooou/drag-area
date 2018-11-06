@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/Richard-Choooou/drag-area#readme",
   "dependencies": {
-    "@babel/runtime": "^7.1.2"
+    "@babel/runtime": "^7.1.2",
+    "@babel/runtime-corejs2": "^7.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
