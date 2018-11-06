@@ -3,7 +3,7 @@
 
 可通过此库可实现图片热区，即为图片添加点击事件，进行跳转等功能，可快速生成静态活动页面
 
-![gif](https://user-images.githubusercontent.com/23492006/47439222-978b4b00-d7de-11e8-9597-a3ff708c1598.gif)
+![gif1](https://user-images.githubusercontent.com/23492006/47507395-b48a5180-d8a4-11e8-8874-0b705637af67.gif)
 
 # 安装
 > npm install drag-area --save

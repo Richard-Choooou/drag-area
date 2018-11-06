@@ -1,4 +1,4 @@
-import DragArea from '@src/index'
+import DragArea from '../dist/drag-area.min.js'
 
 let dragArea = new DragArea('container')
 
@@ -30,8 +30,8 @@ getAllAreasInfo.addEventListener('click', function() {
         console.log('=========================================')
         console.log('高度', value.height + 'px')
         console.log('宽度', value.width + 'px')
-        console.log('距离顶部', value.top + value.y + 'px')
-        console.log('距离左边', value.left + value.x + 'px')
+        console.log('距离顶部', value.top + 'px')
+        console.log('距离左边', value.left + 'px')
         console.log('left 百分比', value.leftProportion)
         console.log('top 百分比', value.topProportion)
         console.log('width 百分比', value.widthProportion)
