@@ -10,8 +10,6 @@
 
 # 导入
 ```js
-//By commonjs
-const DragArea = require('drag-area')
 //By ES6 modules
 import DragArea form 'drag-area'
 //By DOM script
