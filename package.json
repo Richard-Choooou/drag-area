@@ -1,8 +1,8 @@
 {
   "name": "drag-area",
-  "version": "0.1.1",
+  "version": "0.1.11",
   "description": "用于拖拽生成区域",
-  "main": "index.js",
+  "main": "./dist/drag-area.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config ./build/webpack.demo.js",
